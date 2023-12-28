@@ -4,6 +4,7 @@ FROM node:18
 # Establece el directorio de trabajo en la aplicación
 WORKDIR /usr/src/app
 
+COPY package*.json ./
 
 # Instala las dependencias
 RUN apt-get update && apt-get install -y npm && npm install
