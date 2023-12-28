@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config({ path: './.env' });
+// const dotenv = require('dotenv').config({ path: './.env' });
 
 async function getCurrentStreamGame() {
   try {
@@ -6,8 +6,8 @@ async function getCurrentStreamGame() {
       `https://api.twitch.tv/helix/streams?user_login=dinaamyc`,
       {
         headers: {
-          'Client-ID': dotenv.parsed.BOT_TOKEN_ID,
-          Authorization: `Bearer ${dotenv.parsed.BOT_TOKEN_AUTH}`,
+          'Client-ID': process.env.BOT_TOKEN_ID,
+          Authorization: `Bearer ${process.env.BOT_TOKEN_AUTH}`,
         },
       }
     );
