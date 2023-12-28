@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 
 # Instala las dependencias
-RUN npm install
+RUN apt-get update && apt-get install -y npm && npm install
 
 # Copia el resto de los archivos de la aplicación
 COPY . .
