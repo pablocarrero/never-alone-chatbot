@@ -2,7 +2,7 @@
 FROM alpine:3.18
 
 # Establece el directorio de trabajo en la aplicación
-WORKDIR /usr/src
+WORKDIR /usr/src/app
 
 # Copia los archivos package.json y package-lock.json para instalar dependencias
 COPY package*.json ./
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copia el resto de los archivos de la aplicación
-COPY . .
+COPY index.js
 
 # Expone el puerto en el que la aplicación se ejecutará
 EXPOSE 3000
