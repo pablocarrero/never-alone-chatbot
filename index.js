@@ -33,11 +33,13 @@ async function askQuestions() {
     );
 
     const aleatoryIndex = Math.floor(Math.random() * 50);
-    const question = generateQuestionFromSet(gameName, aleatoryIndex);
-
+    const question = generateQuestionFromSet(gameName, aleatoryIndex) ?? 'NOT_FOUND';
+    if (question === 'NOT_FOUND') {
+      throw new Error(`No existen preguntas para el juego ${gameName}`);
+    }
     sendQuestionToChat(question);
   } catch (error) {
-    sendQuestionToChat('El streamer ha dejado de emitir...');
+    sendQuestionToChat(error.message);
     clearInterval(handlerInterval);
   }
 }
@@ -73,7 +75,7 @@ function handleMessageCallback(channel, tags, message, self) {
     tags.username === envs.BOT_NAME
   ) {
     // "@alca, heya!"
-    handlerInterval = setInterval(askQuestions, 3000);
+    handlerInterval = setInterval(askQuestions, 5 * 60 * 1000);
   }
   return;
 }

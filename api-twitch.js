@@ -16,7 +16,7 @@ async function getCurrentStreamGame(bot_name, client_id, oaut_token) {
     const data = await response.json();
     return data.data[0].game_name;
   } catch (error) {
-    throw new Error(`Error fetching data: ${error.message}`);
+    throw new Error(`El streamer ${bot_name} ha dejado de emitir...`);
   }
 }
 
