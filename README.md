@@ -60,3 +60,7 @@ Como recomendación, para generar preguntas puede utilizar ChatGPT. Las pregunta
 Como es lógico, si usted no arranca el bot en local tal y como se ha indicado en los pasos anteriores, al utilizar el comando en el chat de Twitch no obtendrá respuesta, ya que no hay un servidor por detrás que escuche los mensajes del chat y reaccione en torno a ellos. La idea sería iniciar este bot minutos antes de empezar el Streaming
 
 Si desea que el bot esté activo 24/7, necesitará desplegarlo en un Host de Aplicaciones, que es como por ejemplo como yo lo tengo, en Render.com. Para ello, tendrá que crear un archivo .env en el proyecto y copiar el contenido del archivo de configuración, y deberá de hacer un deploy subiendo el proyecto a su repositorio, es decir, a su cuenta de Github
+
+# Preguntas o problemas durante el proceso de instalación
+
+Si siguiendo este proceso no ha conseguido arrancar el bot o se ha quedado atascado en algún paso, no se preocupe, puede contactarme por correo en la dirección de correo electrónico carrerogarciapablo@gmail.com, usando como título del correo esto: YOUR_GITHUB_USERNAME - NeverAloneBot
