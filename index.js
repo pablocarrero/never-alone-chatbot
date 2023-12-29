@@ -6,9 +6,9 @@ async function askQuestions() {
   try {
     const gameName = await getCurrentStreamGame();
     const aleatoryIndex = Math.floor(Math.random() * 50);
-    const questionF = questions[gameName][aleatoryIndex];
+    const question = questions[gameName][aleatoryIndex];
 
-    sendQuestionToChat(questionF);
+    sendQuestionToChat(question);
   } catch (error) {
     sendQuestionToChat('No se ha podido obtener una pregunta...');
   }
