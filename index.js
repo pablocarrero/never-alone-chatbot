@@ -1,6 +1,7 @@
 const tmi = require('tmi.js');
 const { getCurrentStreamGame } = require('./api-twitch.js');
 const questions = require('./preguntas.json');
+require('dotenv').config();
 
 let handlerInterval;
 let envs = {};
@@ -42,16 +43,24 @@ async function askQuestions() {
 }
 
 function loadConfigFile() {
-  const config = require('./config.json');
+  if (process.env.NODE_ENV === 'development') {
+    const config = require('./config.json');
 
-  for (let configVariable of requiredConfig) {
-    if (!config[configVariable]) {
-      console.error(
-        `No se ha encontrado una configuracion valida para ${configVariable}, revisa tu archivo config.json`
-      );
-      process.exit(1);
+    for (let configVariable of requiredConfig) {
+      if (!config[configVariable]) {
+        console.error(
+          `No se ha encontrado una configuracion valida para ${configVariable}, revisa tu archivo config.json`
+        );
+        process.exit(1);
+      }
+      envs = config;
     }
-    envs = config;
+    console.log(envs);
+  } else {
+    envs['OAUTH_CLIENT_ID'] = process.env.OAUTH_CLIENT_ID;
+    envs['OAUTH_ACCESS_TOKEN'] = process.env.OAUTH_ACCESS_TOKEN;
+    envs['BOT_NAME'] = process.env.OAUTH_ACCESS_TOKEN;
+    envs['BOT_COMMAND'] = process.env.BOT_COMMAND;
   }
 }
 
