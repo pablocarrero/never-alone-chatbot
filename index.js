@@ -33,8 +33,8 @@ async function askQuestions() {
     );
 
     const aleatoryIndex = Math.floor(Math.random() * 50);
-    const question = generateQuestionFromSet(gameName, aleatoryIndex) ?? 'NO_QUESTION';
-    if (question === 'NO_QUESTION') {
+    const question = generateQuestionFromSet(gameName, aleatoryIndex) ?? 'NO';
+    if (question === 'NO') {
       throw new Error(`No existen preguntas para el juego ${gameName}`);
     }
     sendQuestionToChat(question);
