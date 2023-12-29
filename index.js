@@ -15,4 +15,4 @@ async function askQuestions() {
 }
 
 // Establecer intervalo para hacer preguntas cada 10 minutos (en milisegundos)
-setInterval(askQuestions, 5000);
+setInterval(askQuestions, 360000);
