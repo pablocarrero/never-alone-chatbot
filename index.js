@@ -18,7 +18,7 @@ async function askQuestions() {
 }
 
 function sendQuestionToChat(question) {
-  client.say(`#${BOT_NAME}`, question);
+  client.say(`#dinaamyc`, question);
 }
 
 client.connect();
