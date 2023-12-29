@@ -10,9 +10,10 @@ async function askQuestions() {
 
     sendQuestionToChat(question);
   } catch (error) {
-    sendQuestionToChat('No se ha podido obtener una pregunta...');
+    sendQuestionToChat('El streamer ha dejado de emitir...');
+    clearInterval(handlerInterval);
   }
 }
 
-// Establecer intervalo para hacer preguntas cada 10 minutos (en milisegundos)
-setInterval(askQuestions, 360000);
+// Establecer intervalo para hacer preguntas cada 7 minutos (en milisegundos)
+const handlerInterval = setInterval(askQuestions, 360000);
