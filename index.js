@@ -1,6 +1,8 @@
-const { sendQuestionToChat } = require('./tmi.js');
+const { client } = require('./tmi.js');
 const { getCurrentStreamGame } = require('./api-twitch.js');
 const questions = require('./preguntas.json');
+
+let handlerInterval;
 
 async function askQuestions() {
   try {
@@ -15,5 +17,18 @@ async function askQuestions() {
   }
 }
 
-// Establecer intervalo para hacer preguntas cada 7 minutos (en milisegundos)
-const handlerInterval = setInterval(askQuestions, 360000);
+function sendQuestionToChat(question) {
+  client.say(`#${BOT_NAME}`, question);
+}
+
+client.connect();
+
+client.on('message', (channel, tags, message, self) => {
+  // Ignore echoed messages.
+  if (self) return;
+
+  if (message.toLowerCase() === '!questions') {
+    // "@alca, heya!"
+    handlerInterval = setInterval(askQuestions, 4000);
+  }
+});

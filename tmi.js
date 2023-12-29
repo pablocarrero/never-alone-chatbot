@@ -13,10 +13,4 @@ const client = new tmi.Client({
   channels: [BOT_NAME],
 });
 
-client.connect();
-
-function sendQuestionToChat(question) {
-  client.say(`#${BOT_NAME}`, question);
-}
-
-module.exports = { sendQuestionToChat };
+module.exports = { client };
