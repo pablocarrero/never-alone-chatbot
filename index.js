@@ -59,7 +59,7 @@ function loadConfigFile() {
   } else {
     envs['OAUTH_CLIENT_ID'] = process.env.OAUTH_CLIENT_ID;
     envs['OAUTH_ACCESS_TOKEN'] = process.env.OAUTH_ACCESS_TOKEN;
-    envs['BOT_NAME'] = process.env.OAUTH_ACCESS_TOKEN;
+    envs['BOT_NAME'] = process.env.BOT_NAME;
     envs['BOT_COMMAND'] = process.env.BOT_COMMAND;
   }
 }
