@@ -1,13 +1,11 @@
-// const dotenv = require('dotenv').config({ path: './.env' });
-
-async function getCurrentStreamGame() {
+async function getCurrentStreamGame(bot_name, client_id, oaut_token) {
   try {
     const response = await fetch(
-      `https://api.twitch.tv/helix/streams?user_login=dinaamyc`,
+      `https://api.twitch.tv/helix/streams?user_login=${bot_name}`,
       {
         headers: {
-          'Client-ID': process.env.BOT_TOKEN_ID,
-          Authorization: `Bearer ${process.env.BOT_TOKEN_AUTH}`,
+          'Client-ID': client_id,
+          Authorization: `Bearer ${oaut_token}`,
         },
       }
     );

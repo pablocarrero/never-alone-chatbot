@@ -12,7 +12,6 @@
   "author": "Pablo Carrero Garcia",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1",
     "tmi.js": "^1.8.5"
   }
 }
