@@ -13,7 +13,6 @@ async function askQuestions() {
     sendQuestionToChat(question);
   } catch (error) {
     sendQuestionToChat('El streamer ha dejado de emitir...');
-    handlerInterval = undefined;
     clearInterval(handlerInterval);
   }
 }
@@ -28,7 +27,8 @@ client.on('message', (channel, tags, message, self) => {
   // Ignore echoed messages.
   if (self) return;
 
-  if (message.toLowerCase() === '!questions' && !handlerInterval) {
+  console.log(tags.username);
+  if (message.toLowerCase() === '!questions' && tags.usermane === 'dinaamyc') {
     // "@alca, heya!"
     handlerInterval = setInterval(askQuestions, 4000);
   }
