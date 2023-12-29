@@ -27,8 +27,7 @@ client.on('message', (channel, tags, message, self) => {
   // Ignore echoed messages.
   if (self) return;
 
-  console.log(tags.username);
-  if (message.toLowerCase() === '!questions' && tags.usermane === 'dinaamyc') {
+  if (message.toLowerCase() === '!questions' && tags.username === 'dinaamyc') {
     // "@alca, heya!"
     handlerInterval = setInterval(askQuestions, 4000);
   }
