@@ -29,7 +29,7 @@ client.on('message', (channel, tags, message, self) => {
 
   if (message.toLowerCase() === '!questions' && tags.username === 'dinaamyc') {
     // "@alca, heya!"
-    handlerInterval = setInterval(askQuestions, 4000);
+    handlerInterval = setInterval(askQuestions, 360000);
   }
   return;
 });
