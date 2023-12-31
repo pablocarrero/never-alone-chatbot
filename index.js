@@ -75,7 +75,7 @@ function handleMessageCallback(channel, tags, message, self) {
     tags.username === envs.BOT_NAME
   ) {
     // "@alca, heya!"
-    handlerInterval = setInterval(askQuestions, 5 * 60 * 1000);
+    handlerInterval = setInterval(askQuestions, 3000);
   }
   return;
 }
