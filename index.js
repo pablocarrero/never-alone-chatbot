@@ -33,7 +33,8 @@ async function askQuestions() {
     );
 
     const aleatoryIndex = Math.floor(Math.random() * 50);
-    const question = generateQuestionFromSet(gameName, aleatoryIndex) ?? 'QUESTION_NOT_FOUND';
+    const question =
+      generateQuestionFromSet(gameName, aleatoryIndex) ?? 'QUESTION_NOT_FOUND';
     if (question === 'QUESTION_NOT_FOUND') {
       throw new Error(`No existen preguntas para el juego ${gameName}`);
     }
@@ -75,7 +76,7 @@ function handleMessageCallback(channel, tags, message, self) {
     tags.username === envs.BOT_NAME
   ) {
     // "@alca, heya!"
-    handlerInterval = setInterval(askQuestions, 3000);
+    handlerInterval = setInterval(askQuestions, 3 * 60 * 1000);
   }
   return;
 }
